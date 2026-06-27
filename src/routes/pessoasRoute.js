@@ -1,9 +1,11 @@
 const { Router } = require('express');
-const PessoasController = require('../controllers/PessoaController.js');
+const PessoaController = require('../controllers/PessoaController.js');
+
+const pessoaController = new PessoaController();
 
 const router = Router();
 
-router.get('/pessoas', PessoasController.getAll);
+router.get('/pessoas', (req, res) => pessoaController.getAll(req, res));
 
 
 module.exports = router;
